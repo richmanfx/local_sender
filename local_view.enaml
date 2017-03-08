@@ -1,0 +1,66 @@
+from enaml.widgets.api import Window, Container, Label, PushButton, Html
+from enaml.layout.api import vertical, horizontal, align, spacer, vbox
+from enaml.styling import StyleSheet, Style, Setter
+import local_sender
+
+enamldef Main(Window):
+    attr message
+    StyleSheet:
+        Style:
+            element = 'Label'
+            Setter:
+                field = 'color'
+                value = 'blue'
+            Setter:
+                field = 'font'
+                value = 'bold 16pt Arial'
+        Style:
+            element = 'PushButton'
+            Setter:
+                field = 'color'
+                value = 'green'
+            Setter:
+                field = 'font'
+                value = 'bold 12pt Arial'
+
+    Container:
+        constraints = [
+            align('h_center', header_label, pb1, pb2, pb3, pb4, pb5), # кнопка выровнена по центру лейбла
+            # align('left', pb1, pb2),
+            # horizontal(left, header_label),
+            horizontal(left, spacer.flex(), header_label, spacer.flex(), right),
+            contents_top == header_label.top,
+            contents_left == header_label.left,
+            contents_right == header_label.right,
+            header_label.bottom + 10 == pb1.top,
+            pb1.bottom + 10 == pb2.top,
+            pb2.bottom + 10 == pb3.top,
+            pb3.bottom + 10 == pb4.top,
+            pb4.bottom + 10 == pb5.top,
+            pb5.bottom <= contents_bottom,
+
+        ]
+
+        Label: header_label:
+            text = message
+
+        PushButton: pb1:
+            text = '/ping'
+            clicked :: local_sender.ping_to_grabber()
+
+        PushButton: pb2:
+            text = 'many /ping'
+            clicked :: local_sender.many_ping_to_grabber()
+
+        PushButton: pb3:
+            text = '/grab'
+            clicked :: local_sender.grab_to_grabber()
+
+        PushButton: pb4:
+            text = 'many /grab'
+            clicked :: local_sender.many_grab_to_grabber()
+
+        PushButton: pb5:
+            text = '/exit'
+            clicked :: local_sender.exit_to_grabber()
+
