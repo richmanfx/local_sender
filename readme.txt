@@ -1,15 +1,14 @@
-1.Установить setuptools через ez_setup.py. 
- или
+1.РЈСЃС‚Р°РЅРѕРІРёС‚СЊ setuptools С‡РµСЂРµР· ez_setup.py. 
+ РёР»Рё
  python -m pip install -U pip setuptools
 
-2.Скачаст и установить VCForPython27.msi:
+2.РЎРєР°С‡Р°СЃС‚ Рё СѓСЃС‚Р°РЅРѕРІРёС‚СЊ VCForPython27.msi:
 	https://www.microsoft.com/en-us/download/confirmation.aspx?id=44266
                                                                            
-3.Установить enaml через pip:
+3.РЈСЃС‚Р°РЅРѕРІРёС‚СЊ enaml С‡РµСЂРµР· pip:
 	python -m pip install enaml
 
-4.Установить PySide через pip
+4.РЈСЃС‚Р°РЅРѕРІРёС‚СЊ PySide С‡РµСЂРµР· pip
 	python -m pip install PySide
 
 5. python -m pip install requests
-
