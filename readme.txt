@@ -10,5 +10,7 @@
 
 4.Установить PySide через pip
 	python -m pip install PySide
+    или в Linux:
+	apt-get install python-pyside
 
 5. python -m pip install requests
